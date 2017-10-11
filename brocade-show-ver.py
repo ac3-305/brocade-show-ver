@@ -15,7 +15,7 @@ password = getpass.getpass("Enter Password:\n")
 
 a = ip_address.split('.')
 
-if len(a) == 4 and int(a[0]) == 192 and int(a[1]) == 168 and int(a[2]) <= 2 and int(a[3]) <= 200:    # valid ssh host verification
+if len(a) == 4 and int(a[0]) == 192 and int(a[1]) == 168 and int(a[2]) <= 2 and int(a[3]) <= 200:    # if your switches are on a particular IP range and subnet
         ssh_client = paramiko.SSHClient()
         ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh_client.connect(hostname=ip_address,username=username,password=password)
