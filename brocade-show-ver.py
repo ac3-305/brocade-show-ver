@@ -18,7 +18,7 @@ a = ip_address.split('.')
 if len(a) == 4 and int(a[0]) == 192 and int(a[1]) == 168 and int(a[2]) <= 2 and int(a[3]) <= 200:    # if your switches are on a particular IP range and subnet
         ssh_client = paramiko.SSHClient()
         ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh_client.connect(hostname=ip_address,username=username,password=password)
+        ssh_client.connect(hostname=ip_address,username=username,password=password,,look_for_keys=False,allow_agent=False)
         remote_connection = ssh_client.invoke_shell()
         time.sleep(1)
         remote_connection.send("enable\n")
